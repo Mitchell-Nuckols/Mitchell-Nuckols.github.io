@@ -1,1 +1,2 @@
-# Random blog site thing for stuff
+# Github Site
+Mostly for Japanese translations (not good ones)
