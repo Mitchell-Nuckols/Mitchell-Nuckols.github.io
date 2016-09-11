@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Algorithms</title>
+</head>
+
+<body style="background-color: black;">
+  <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="./scripts/rot.min.js"></script>
+  <script type="text/javascript" src="./scripts/algorithm.js"></script>
+  <script type="text/javascript" src="./scripts/cellularautomata.js"></script>
+
+  <script type="text/javascript">
+    function showValue(newValue)
+    {
+        $("#range").val(newValue);
+        console.log($("#range"));
+    }
+  </script>
+
+  <center id="content">
+    <form method="get" style="background-color: #FFFFFF">
+        Rule:
+        <input id="rule" type="text" name="rule"></input>
+        <input id="reverse" type="checkbox" name="reverse" value="true">Invert</input>
+        <input id="range_slider" type="range" min="1" max="13" value="1" step="1" onchange="showValue(this.value)">Scale:</input>
+        <input id="range" type="text" name="scale" value="1"/>
+        <input type="submit" value="submit"></input>
+    </form>
+  </center>
+</body>
+</html>
