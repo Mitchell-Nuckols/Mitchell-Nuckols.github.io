@@ -1,0 +1,6 @@
+baseURL = 'https://Mitchell-Nuckols.github.io'
+languageCode = 'en-us'
+title = 'Mitchell Nuckols'
+
+[params]
+description = 'Mitchell Nuckols is a freelance web developer and electrical engineering student located in San Diego, California'

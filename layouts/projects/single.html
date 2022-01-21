@@ -1,0 +1,15 @@
+{{ define "title" }}
+  {{ .Title }} - {{ .Site.Title }}
+{{ end }}
+
+{{ define "main" }}
+  <article class="single">
+    <header>
+      <h1>{{ .Title }}</h1>
+      <nav>
+        <a href="{{ .Parent.RelPermalink }}">&larr; {{ .Parent.Title }}</a>
+      </nav>
+    </header>
+    {{ .Content }}
+  </article>
+{{ end }}

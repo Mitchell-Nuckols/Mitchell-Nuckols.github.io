@@ -1,0 +1,21 @@
+{{ define "title" }}
+  {{ .Title }} - {{ .Site.Title }}
+{{ end }}
+
+{{ define "main" }}
+  <article>
+    <header>
+      <h1>{{ .Title }}</h1>
+    </header>
+    <section>
+      <ul class="subsection-list">
+        {{ range .CurrentSection.Pages }}
+        <li><a href="{{ .Permalink }}">&rarr; {{ .Title }}</a></li>
+        {{ end }}
+      </ul>
+    </section>
+    <section>
+      {{ .Content }}
+    </section>
+  </article>
+{{ end }}

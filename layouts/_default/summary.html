@@ -1,0 +1,10 @@
+<article class="summary">
+  <header class="summary-header">
+    <h2 class="summary-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+    <small class="date"><time datetime="{{ .Date }}">{{ .Date.Format "Mon, Jan 2. 2006" }}</time></small>
+  </header>
+  {{ .Summary }}...
+  <footer class="summary-footer">
+    <a href="{{ .Permalink }}">Read More</a>
+  </footer>
+</article>
