@@ -11,17 +11,23 @@ title: "Resume"
 - C# / .NET Core
 - JavaScript / TypeScript
 - Agile / Scrum
-- LaTeX
+- C/C++
 - Excel / Google Sheets
 
 ---
 
 ## _Work Experience:_
+### UCSD ITS / Build & Release Services
+*November 2021 - Present*
+- Work as DevOps support for application testing and deployment
+	- Bamboo, BitBucket, Sonar, Apache NiFi, Docker
+- Test and improve CI/CD workflows for application developers
+
 ### UCSD CSE/ITS / Web Developer
 *February 2020 - March 2021*
 - Developed backend web services and frontend interface
 	- .NET Core, EF Core, SQL Server, Go, HTML, CSS, Angular (TypeScript)
-- Worked with Google APISs and internal services
+- Worked with Google APIs and internal services
 
 ### Martin Malkasian, Esq. / Web Designer
 *January 2019 - May 2019*
@@ -41,8 +47,8 @@ title: "Resume"
 ### University of California, San Diego / B.S. Electrical Engineering
 *August 2019 - March 2021*
 - Senior academic standing
-- 91.5 units completed towards EE major - circuits and systems focus
-- 20 units completed towards a minor in neurobiology
+- 91.5 units completed towards EE major - Computer System Design focus
+- 20 units completed towards a minor in biology - neruobio focus
 
 ---
 
