@@ -47,7 +47,7 @@ title: "Resume"
 ### University of California, San Diego / B.S. Electrical Engineering
 *August 2019 - March 2021*
 - Senior academic standing
-- 91.5 units completed towards EE major - Computer System Design focus
+- 99.5 units completed towards EE major - Computer System Design focus
 - 20 units completed towards a minor in biology - neruobio focus
 
 ---

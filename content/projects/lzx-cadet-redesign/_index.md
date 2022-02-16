@@ -13,7 +13,8 @@ A little over a year ago I discovered the very interesting world of analog video
 I had known about modular audio synths for a while, but since I have effectively zero musical talent, I was never particularly interested in it.
 (My dad bought me an electric guitar when I was little in an attempt to teach me, but I was more interested on what was inside, so I just took it apart instead)
 The cool part about video synthesis, though, is it isn't really reliant on having to understand theory behind what makes something sound good.
-If it looks cool, it looks cool, if not, just do something different.
+If it looks cool, it looks cool.
+If not, just do something different.
 At least that's my layperson understanding from just watching YouTube videos on the subject.
 
 A prominent figure in modular video synthesis is [LZX Industries](https://lzxindustries.net/), who has released quite the assortment of video synth gear.
