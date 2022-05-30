@@ -3,6 +3,8 @@ title: "Resume"
 
 ---
 
+You can download a full PDF version of my resume [here](https://github.com/Mitchell-Nuckols/resume/raw/build/resume.pdf)
+
 ## _Skills:_
 - Linux desktop / server
 - Git / Gitflow
