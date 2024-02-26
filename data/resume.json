@@ -1,0 +1,59 @@
+{
+    "basics": {
+        "name": "Mitchell Nuckols",
+        "email": "mitchnuckols@gmail.com",
+        "url": "https://mitch.cx",
+        "location": {
+            "region": "California",
+            "countryCode": "US"
+        }
+    },
+    "work": [
+        {
+            "name": "Cyth Systems, Inc.",
+            "position": "Project Engineer",
+            "startDate": "2023-03-26",
+            "summary": "LabVIEW, Circuit Debugging, FPGA, Embedded Firmware",
+            "highlights": [
+                "Design, develop, and manufacture embedded test and measurement devices for clients in medical, energy, and research sectors for both in-field and laboratory environments",
+                "Plan, implement, and test high-throughput device drivers in FPGA gateware, using protocols such as I2C and SPI",
+                "Design and validate digital and analog circuitry in complex, mixed-signal systems",
+                "Author Functional Design Specification, Operation/Performance Qualification, Factory Acceptance Test, etc. documents to facillitate the systems engineering process",
+                "Take a lead role on client projects and participate in product development from ideation through to deployment and maintenance"
+            ]
+        },
+        {
+            "name": "UCSD Information Technology Services",
+            "position": "Build and Release Developer",
+            "startDate": "2021-11-01",
+            "endDate": "2023-03-01",
+            "summary": "Python, Docker, Bamboo, Bitbucket, SonarQube, NiFi, Jira, Artifactory, AWS",
+            "highlights": [
+                "Designed, tested, and improved CI/CD and DevOps workflows for application developers",
+                "Wrote testing/QA automation tools in Python",
+                "Designed CI/CD automation for deployment to AWS Lambda, EKS, and Artifactory"
+            ]
+        },
+        {
+            "name": "UCSD Information Technology Services",
+            "position": "Web Developer",
+            "startDate": "2020-02-14",
+            "endDate": "2021-03-01",
+            "summary": ".NET Core, EntityFramework Core, SQL Server, HTML, CSS, Angular, Jira, Bitbucket",
+            "highlights": [
+                "Developed backend web services and frontend interface for an official university degree planner",
+                "Built RESTful web services using .NET Core that interfaced with SQL Server and web APIs"
+            ]
+        }
+    ],
+    "education": [
+        {
+            "institution": "University of California, San Diego",
+            "studyType": "B.S.",
+            "area": "Electrical Engineering",
+            "startDate": "2019-08-01",
+            "endDate": "2023-03-23",
+            "courses": []
+        }
+    ]
+}

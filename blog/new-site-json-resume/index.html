@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbsList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Blog",
+                "item": "https://mitch.cx/blog/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Site Re-Do (Again)"
+            }
+        ]
+    }
+</script>
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": [{
+            "@type": "Person",
+            "name": "Mitchell Nuckols",
+            "url": "https://mitch.cx"
+        }],
+        "datePublished": "2024-02-24",
+        "headline": "Site Re-Do (Again)"
+
+    }
+</script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mitchell Nuckols is a embedded systems software and hardware developer based in San Diego, California">
+    <meta name="author" content="Mitchell Nuckols">
+
+    <title id="title" j-patch> Site Re-Do (Again) | Mitchell Nuckols </title>
+
+    <link rel="preload" href="https://mitch.cx/fonts/Lora-VariableFont_wght.ttf" as="font" type="font/ttf">
+    <link rel="preload" href="https://mitch.cx/fonts/Mulish-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="stylesheet" href="https://mitch.cx/style.css" crossorigin>
+    
+
+</head>
+<body>
+    <div id="site-container">
+    <header id="header" j-patch>
+    <div class="header-container">
+
+<div class="header-title-container">
+    <span class="header-title-text">Mitchell Nuckols</span>
+    <!--<span class="header-title-divider">/</span>
+    <span class="header-title-page">Blog</span>-->
+</div>
+<div class="header-links-container">
+    <nav class="main-nav" aria-label="Main">
+        <ul>
+            <li class="nav-page-inactive">
+                <a href="https://mitch.cx/" j-link>About</a>
+            </li>
+            <li class="nav-page-inactive">
+                <a href="https://mitch.cx/resume/" j-link>Resume</a>
+            </li>
+            <li class="nav-page-active">
+                <a href="https://mitch.cx/blog/" j-link>Blog</a>
+            </li>
+        </ul>
+    </nav>
+</div>
+</div>
+
+    </header>
+
+    <main id="main" j-patch>
+    
+    <a class="back-link" href="https:&#x2F;&#x2F;mitch.cx&#x2F;blog&#x2F;" aria-label="Return to the blog post list" j-link>Back</a>
+    <h1 id="site-re-do-again">Site Re-Do (Again)</h1>
+<p>I'm back with yet another site re-design.
+Here are some highlights:</p>
+<ul>
+<li>Switched the site generator from <a href="https://gohugo.io/">Hugo</a> to <a href="https://www.getzola.org/">Zola</a></li>
+<li>Added a <em>very small</em> (arguably unecessary) touch of JavaScript for those who have it enabled</li>
+<li>Modified the <a href="https://mitch.cx/resume/" j-link>Resume</a> page to be entirely data-driven</li>
+</ul>
+<h2 id="from-hugo-to-zola">From Hugo to Zola</h2>
+<p>Honestly I just wanted to try something new.
+I was only using a fraction of the features Hugo offers and figured looking at a new tool could be fun.
+I came across Zola while reading an article on Alexis Lozano's site regarding <a href="https://alexis-lozano.com/hexagonal-architecture-in-rust-1/">hexagonal architecture in Rust</a>, which inspired me to start up my website again.
+The transition from Hugo has been very smooth, though I am essentially re-doing all content on the site, so I'm not sure what the migration cost is.
+Conceptually, though, it's very similar, if not simpler to understand.</p>
+<h2 id="light-javascript-enhancement">Light JavaScript Enhancement</h2>
+<p>This one is new for me.</p>
+<p>I'm typically against JS being used where it doesn't belong, and admittedly prided myself in not using it on previous sites.
+However, I began wondering if I could add something simple to swap content on page navigation to prevent having to reload my whole site and trigger an entire page refresh.</p>
+<p>My first thought was <a href="https://htmx.org/">HTMX</a> with the <code>hx-boost</code> and <code>hx-swap</code> attributes.
+I became a fan of HTMX after using it to build some simple apps that could benefit from dynamic page content but didn't justify the frontend development overhead of something like React or Svelte.
+However, HTMX is ~14kB minified and gzipped, of which at least 13kB was for features I didn't need.</p>
+<p>I set the idea aside and continued working on the site content until I came across <a href="https://news.ycombinator.com/item?id=39429370">this post</a> on Hacker News about <a href="https://leanrada.com/htmz/">HTMZ</a>.
+166 <em>bytes</em> of JavaScript and it used native HTML features in the form of <code>&lt;iframe&gt;</code>s to boost content.
+This seemed exactly like what I wanted and I spent around an hour playing with it.
+However, it fell a little short when it came to pushing page history to the window.
+I didn't find it entirely user-friendly to not push location changes to the address bar.
+There were also some quirks with the iframe history navigation, though that could be because I was loading the entire page into the iframe instead of simple HTML snippets.</p>
+<p>Next, there was <a href="https://github.com/josephernest/Swap/tree/main">Swap.js</a>, which seemed to isolate the <code>hx-boost</code> feature of HTMX and package it in a neat, small library.
+This was <em>almost</em> what I needed, but I wanted to go smaller.
+Swap, like HTMX and HTMZ is geared towards requesting HTML <em>snippets</em> from a server and inserting them into an element on the DOM.
+I'm not interested in running a backend for this site, so any request for new page content would have to be static.
+Problems with static snippets arise when the user has JavaScript disabled.
+HTMX and Swap solve this problem by sending a special header letting the server know to only send a snippet if the user has JS enabled.
+Without a backend, though, these headers mean nothing.
+No JavaScript is a user choice this site must absolutely respect, so the lack of a dynamic backend means any new page content will have to come with the <em>whole</em> page on request.</p>
+<p>Using Swap as a starting point and inspiration, I created what I call &quot;Jolt&quot;.
+It's named Jolt because of the universal requirement that every simple JavaScript snippet comes with a single word name that sounds cool.
+A JavaScript Jolt library <a href="https://github.com/bazaarvoice/jolt">already exists</a> so if you have an idea for a different cool-sounding and meaningless name, send it my way.</p>
+<p>Anyways, here's the code:</p>
+<pre data-lang="en" style="background-color:#2b303b;color:#c0c5ce;" class="language-en "><code class="language-en" data-lang="en"><span>var Jolt = (() =&gt; {
+</span><span>    &#39;use strict&#39;
+</span><span>
+</span><span>    registerLinks()
+</span><span>
+</span><span>    window.addEventListener(&#39;popstate&#39;, () =&gt; swap(location.href, false))
+</span><span>
+</span><span>    function swap(href, pushstate) {
+</span><span>        fetch(href)
+</span><span>            .then(r =&gt; r.text())
+</span><span>            .then(h =&gt; {
+</span><span>                var newDoc = (new DOMParser).parseFromString(h, &#39;text/html&#39;)
+</span><span>
+</span><span>                for (const el of newDoc.querySelectorAll(&#39;*[j-patch]&#39;))
+</span><span>                    document.getElementById(el.id)?.replaceWith(el)
+</span><span>
+</span><span>                if (pushstate) history.pushState({}, &#39;&#39;, href)
+</span><span>
+</span><span>                registerLinks()
+</span><span>            })
+</span><span>    }
+</span><span>
+</span><span>    function registerLinks() {
+</span><span>        for (const el of document.querySelectorAll(&#39;*[j-link]&#39;))
+</span><span>            el.onclick = (e) =&gt; {
+</span><span>                swap(el.href, true)
+</span><span>                e.preventDefault()
+</span><span>            }
+</span><span>    }
+</span><span>})()
+</span></code></pre>
+<p>Links that trigger swap events are tagged with a <code>j-link</code> attribute:</p>
+<pre data-lang="html" style="background-color:#2b303b;color:#c0c5ce;" class="language-html "><code class="language-html" data-lang="html"><span>&lt;</span><span style="color:#bf616a;">a </span><span style="color:#d08770;">href</span><span>=&quot;</span><span style="color:#a3be8c;">resume.html</span><span>&quot; </span><span style="color:#d08770;">j-link</span><span>&gt;Resume&lt;/</span><span style="color:#bf616a;">a</span><span>&gt;
+</span></code></pre>
+<p>This attaches a listener that triggers an AJAX request on click, which then reads in the page specified in the <code>href</code> and swaps tags containing the <code>j-patch</code> attribute with the tag from the new HTML containing a matching <code>id</code>.
+For example, if I had a title tag</p>
+<pre data-lang="html" style="background-color:#2b303b;color:#c0c5ce;" class="language-html "><code class="language-html" data-lang="html"><span>&lt;</span><span style="color:#bf616a;">title </span><span style="color:#8fa1b3;">id</span><span>=&quot;</span><span style="color:#a3be8c;">page-title</span><span>&quot; </span><span style="color:#d08770;">j-patch</span><span>&gt;Homepage Title&lt;/</span><span style="color:#bf616a;">title</span><span>&gt;
+</span></code></pre>
+<p>and a link to another page</p>
+<pre data-lang="html" style="background-color:#2b303b;color:#c0c5ce;" class="language-html "><code class="language-html" data-lang="html"><span>&lt;</span><span style="color:#bf616a;">a </span><span style="color:#d08770;">href</span><span>=&quot;</span><span style="color:#a3be8c;">subpage.html</span><span>&quot; </span><span style="color:#d08770;">j-link</span><span>&gt;Subpage Link&lt;/</span><span style="color:#bf616a;">a</span><span>&gt;
+</span></code></pre>
+<p>following the link would trigger an AJAX request to <code>subpage.html</code> and swap <code>j-patch</code> marked tags with the new page's content (and push 'subpage.html' to the browser history).
+If this was the title tag in the new page, it would get swapped in:</p>
+<pre data-lang="html" style="background-color:#2b303b;color:#c0c5ce;" class="language-html "><code class="language-html" data-lang="html"><span>&lt;</span><span style="color:#bf616a;">title </span><span style="color:#8fa1b3;">id</span><span>=&quot;</span><span style="color:#a3be8c;">page-title</span><span>&quot; </span><span style="color:#d08770;">j-patch</span><span>&gt;Subpage Title&lt;/</span><span style="color:#bf616a;">title</span><span>&gt;
+</span></code></pre>
+<p>That's it.
+I think the use cases of this type of content swap are limited and arguably not necessary, but I like the feel of content swapping rather than a whole page reload.
+This also opens the opportunity to add something like a <code>j-preload</code> attribute to a select number of links to preload and cache top-level pages for even faster navigation.
+Of course, preloading would have to be done sparingly and only on small pages, since the <em>entire</em> page comes with each request.</p>
+<h2 id="new-resume-page-and-data-driven-content-generation">New Resume Page and Data-Driven Content Generation</h2>
+<p>My resume on the old site was woefully out of date.
+This is primarily because when I sent out a PDF of my resume to potential employers, it came from a fancy LaTeX document I maintianed regularly.
+Working in LaTeX, however, meant the site's resume page had to be updated manually in Markdown to reflect any changes I made on the LaTeX file.</p>
+<p>This was a poor method of keeping these files in sync and you could probably guess it didn't take long for the site to become neglected.</p>
+<p>When starting this new site, I wanted to use some form of data-driven content that would allow me to define my resume in a common format, like YAML or JSON, and simply export it to markup formats like LaTeX or HTML through templating.
+It didn't take long to find <a href="https://jsonresume.org/schema/">JSON Resume</a>, which defines a standard format to convey the typical information found on a resume using JSON.
+I have a few disagreements on the content of some of the categories, but for the most part it captures the type of information I want in my resume, so I've used it as a starting point.
+The actual JSON is exported with this site if you're interested in what a complete JSON Resume looks like: <a href="/data/resume.json">My JSON Resume</a></p>
+<p>I have yet to implement the LaTeX side of this template-based resume system, but I don't expect it to take very long now that I have a standard schema to follow.
+The end goal here is to have my GitHub Actions setup in such a way that a change to my resume source triggers a new build and push for both this site and the PDF generated from the LaTeX template.
+This way, even if I fall behind with updating this site with posts, it'll at least contain an up-to-date copy of my resume.</p>
+
+
+    </main>
+
+    <footer>
+    <footer>
+
+</footer>
+    </footer>
+    </div>
+
+    <script src="https://mitch.cx/scripts/jolt.js"></script>
+</body>
+</html>
