@@ -1,0 +1,32 @@
+$desktop-font-size: 1rem;
+$mobile-font-size: 1rem/1.2;
+$font-weight-light: 400;
+$font-weight-dark: 300;
+
+@font-face {
+    font-display: swap;
+    font-family: "Lora";
+    src: url("fonts/Lora-VariableFont_wght.ttf") format("opentype");
+    font-style: normal;
+}
+
+/*
+@font-face {
+    font-display: swap;
+    font-family: "Lora";
+    src: url("fonts/Lora-Italic-VariableFont_wght.ttf") format("opentype");
+    font-style: italic;
+}
+*/
+
+@font-face {
+    font-display: swap;
+    font-family: "Quicksand";
+    src: url("fonts/Quicksand-VariableFont_wght.ttf") format("opentype");
+}
+
+@font-face {
+    font-display: swap;
+    font-family: "Mulish";
+    src: url("fonts/Mulish-VariableFont_wght.ttf") format("opentype");
+}

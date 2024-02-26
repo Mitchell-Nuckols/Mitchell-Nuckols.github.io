@@ -1,0 +1,104 @@
+{% if path %}
+    {% set resume = load_data(path=path) -%}
+{% elif url %}
+    {% set resume = load_data(url=url) -%}
+{% endif %}
+
+{% if resume.work %}
+<section class="resume-section">
+
+<h2 class="resume-section-title">Work Experience</h2>
+
+{% for entry in resume.work %}
+<div class="resume-entry-container">
+<div class="resume-entry-name">
+    <h3>{{ entry.name }}</h3>
+    <span class="resume-entry-position">{{ entry.position }}</span>
+</div>
+<span class="resume-entry-date">
+{{ entry.startDate | date(format="%B %Y")}} - 
+{% if entry.endDate -%}
+{{ entry.endDate | date(format="%B %Y")}}
+{%- else -%}
+Present
+{%- endif -%}
+</span>
+
+<p class="resume-entry-summary">
+<b>Skills:</b> {{ entry.summary }}
+</p>
+
+<ul class="resume-entry-highlight-list">
+{% for highlight in entry.highlights %}
+<li><p class="resume-entry-highlight">{{ highlight }}</p></li>
+{% endfor %}
+</ul>
+
+</div>
+{% endfor %}
+</section>
+{% endif %}
+
+
+{% if resume.education %}
+<section class="resume-section">
+
+<h2 class="resume-section-title">Education</h2>
+{% for entry in resume.education %}
+<div class="resume-entry-container">
+<div class="resume-entry-name">
+    <h3>{{ entry.institution }}</h3>
+    <span class="resume-entry-position">{{entry.studyType}} {{ entry.area }}</span>
+</div>
+<span class="resume-entry-date">
+{{ entry.startDate | date(format="%B %Y")}} - 
+{% if entry.endDate -%}
+{{ entry.endDate | date(format="%B %Y")}}
+{%- else -%}
+Present
+{%- endif -%}
+</span>
+{% for course in entry.courses %}
+{% endfor %}
+</div>
+{% endfor %}
+</section>
+{% endif %}
+
+{% if resume.projects %}
+<section class="resume-section">
+<h2 class="resume-section-title">Projects</h2>
+{% for entry in resume.projects %}
+<div class="resume-entry-container">
+<div class="resume-entry-name">
+    <h3>
+    {% if entry.url %}
+    <a href="{{ entry.url }}">{{ entry.name }}</a>
+    {% else %}
+    {{ entry.name }}
+    {% endif %}
+    </h3>
+</div>
+<span class="resume-entry-date">
+{{ entry.startDate | date(format="%B %Y")}} - 
+{% if entry.endDate -%}
+{{ entry.endDate | date(format="%B %Y")}}
+{%- else -%}
+Present
+{%- endif -%}
+</span>
+
+<p class="resume-entry-summary">
+{{ entry.description }}
+</p>
+
+<ul class="resume-entry-highlight-list">
+{% for highlight in entry.highlights %}
+<li><p class="resume-entry-highlight">{{ highlight }}</p></li>
+{% endfor %}
+</ul>
+
+</div>
+{% endfor %}
+</section>
+{% endif %}

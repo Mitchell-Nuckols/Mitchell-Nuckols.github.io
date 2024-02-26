@@ -1,0 +1,92 @@
+@import "colors";
+@import "fonts";
+
+$mobile-breakpoint: 75ch;
+$tablet-breakpoint: 1344px;
+
+@import "header";
+@import "resume";
+
+:root {
+    --font-weight: #{$font-weight-light};
+
+    --fg: #{$fg-light};
+    --bg: #{$bg-light};
+    --primary: #{$primary-light};
+    --secondary: #{$secondary-light};
+    --highlight: #{$highlight-light};
+    --link: #{$link-light};
+
+    @media (prefers-color-scheme: dark) {
+        --font-weight: #{$font-weight-dark};
+
+        --fg: #{$fg-dark};
+        --bg: #{$bg-dark};
+        --primary: #{$primary-dark};
+        --secondary: #{$secondary-dark};
+        --highlight: #{$highlight-dark};
+        --link: #{$link-dark};
+    }
+}
+
+html, body {
+    background-color: var(--bg);
+    color: var(--fg);
+
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+
+    font-size: $mobile-font-size;
+    font-family: "Mulish", "Source Sans Pro", -apple-system, BilnkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+
+
+    @media only screen and (min-width: $mobile-breakpoint) {
+        font-size: $desktop-font-size;
+        font-family: "Mulish", "Source Sans Pro", -apple-system, BilnkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+}
+
+footer {
+    height: 5vh;
+}
+
+#site-container {
+    margin: 0 auto;
+    padding: 0 2ch;
+
+    @media only screen and (min-width: $mobile-breakpoint) {
+        width: 55vw;
+    }
+}
+
+a {
+    color: var(--link);
+
+    &.back-link::before {
+        content: "\2190";
+    }
+}
+
+h1 {
+    font-family: "Lora";
+}
+
+hr {
+    margin: 0 auto;
+    color: var(--fg);
+}
+
+hr.partial-hr {
+    width: 20%;
+}
+
+main p {
+    word-wrap: break-word;
+}
+
+pre {
+    padding: 0.25rem;
+    display: block;
+    overflow: scroll;
+}

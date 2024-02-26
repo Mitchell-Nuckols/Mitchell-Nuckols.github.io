@@ -1,0 +1,116 @@
+nav.main-nav {
+    width: 50%;
+    margin: 0.15rem auto;
+
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+
+        @media only screen and (min-width: $mobile-breakpoint) {
+            justify-content: end;
+        }
+    }
+
+    li {
+        padding: 0 1ch;
+        text-align: center;
+    }
+
+    a {
+        color: var(--link);
+
+        font-weight: normal;
+
+        text-decoration: none;
+
+        &:visited {
+            color: var(--link);
+        }
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    li.nav-page-active {
+        a {
+            font-weight: bolder;
+        }
+    }
+}
+
+.header-container {
+    color: var(--primary);
+
+    margin-top: 2vw;
+    margin-bottom: 1vw;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    border-bottom: 1px solid var(--primary);
+
+    @media only screen and (min-width: $mobile-breakpoint) {
+        flex-direction: row;
+    }
+}
+
+.header-title-container {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    padding-bottom: 0.5rem;
+
+    @media only screen and (min-width: $tablet-breakpoint) {
+        padding-bottom: 0;
+        flex-direction: row;
+    }
+}
+
+.header-links-container {
+    border-top: 1px solid var(--primary);
+    width: 100%;
+
+    @media only screen and (min-width: $mobile-breakpoint) {
+        width: 50%;
+        border-top: none;
+    }
+}
+
+.header-title-text {
+    font-family: 'Lora';
+    font-size: 2rem;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.header-title-divider {
+    padding: 0 2ch;
+    display: none;
+
+    @media only screen and (min-width: $tablet-breakpoint) {
+        display: initial;
+    }
+}
+
+.header-nav-divider {
+    width: 100%;
+
+    @media only screen and (min-width: $mobile-breakpoint) {
+        display: none;
+    }
+}
+
+.header-title-page {
+    font-family: 'Lora';
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-style: italic;
+}

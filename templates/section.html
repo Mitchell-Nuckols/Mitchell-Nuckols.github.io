@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %} {{ section.title }} | {{ super() }} {% endblock title %}
+
+{% if section.description %}
+{% block description %}{{ section.description }}{% endblock description %}
+{% endif %}
+
+{% block header %}
+{%- set activePage = section.title -%}
+{{ super() }}
+{% endblock header%}
+
+{% block content %}
+{{ section.content | safe }}
+{% endblock content %}

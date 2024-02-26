@@ -1,7 +1,0 @@
-{{ $styles := resources.Match "css/main.css" | resources.Concat "site.css" | resources.Minify}}
-<link type="text/css" rel="stylesheet" href="{{ $styles.RelPermalink }}" media="all">
-
-<!-- TODO: Self-host this -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">

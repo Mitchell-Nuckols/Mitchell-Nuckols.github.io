@@ -1,0 +1,23 @@
+<div class="header-container">
+
+<div class="header-title-container">
+    <span class="header-title-text">{{ config.title }}</span>
+    <!--<span class="header-title-divider">/</span>
+    <span class="header-title-page">{{ activePage }}</span>-->
+</div>
+<div class="header-links-container">
+    <nav class="main-nav" aria-label="Main">
+        <ul>
+            <li class="{% if activePage == 'About' %}nav-page-active{% else %}nav-page-inactive{% endif %}">
+                <a href="{{ get_url(path='@/_index.md') }}" j-link>About</a>
+            </li>
+            <li class="{% if activePage == 'Resume' %}nav-page-active{% else %}nav-page-inactive{% endif %}">
+                <a href="{{ get_url(path='@/resume.md') }}" j-link>Resume</a>
+            </li>
+            <li class="{% if activePage == 'Blog' %}nav-page-active{% else %}nav-page-inactive{% endif %}">
+                <a href="{{ get_url(path='@/blog/_index.md') }}" j-link>Blog</a>
+            </li>
+        </ul>
+    </nav>
+</div>
+</div>

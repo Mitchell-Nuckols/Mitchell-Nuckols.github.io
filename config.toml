@@ -1,6 +1,13 @@
-baseURL = 'https://mitch.cx'
-languageCode = 'en-us'
-title = 'Mitchell Nuckols'
+base_url = "https://mitch.cx"
 
-[params]
-description = 'Mitchell Nuckols is a freelance web developer and electrical engineering student located in San Diego, California'
+compile_sass = true
+build_search_index = false
+
+title = "Mitchell Nuckols"
+author = "Mitchell Nuckols"
+description = "Mitchell Nuckols is a embedded systems software and hardware developer based in San Diego, California"
+
+[markdown]
+highlight_code = true
+
+[extra]

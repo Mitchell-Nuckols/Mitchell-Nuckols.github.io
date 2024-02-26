@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block head %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{% block description %}{{ config.description }}{% endblock description %}">
+    <meta name="author" content="{{ config.author }}">
+
+    <title id="title" j-patch>{% block title %}{{ config.title }}{% endblock title %}</title>
+
+    <link rel="preload" href="{{ get_url(path='fonts/Lora-VariableFont_wght.ttf') }}" as="font" type="font/ttf">
+    <link rel="preload" href="{{ get_url(path='fonts/Mulish-VariableFont_wght.ttf') }}" as="font" type="font/ttf">
+    <link rel="stylesheet" href="{{ get_url(path='style.css') }}">
+    {% endblock head %}
+</head>
+<body>
+    <div id="site-container">
+    <header id="header" j-patch>
+    {% block header %}{% include "partials/header.html" %}{% endblock header %}
+    </header>
+
+    <main id="main" j-patch>
+    {% block content %}{% endblock content %}
+    </main>
+
+    <footer>
+    {% block footer %}{% include "partials/footer.html" %}{% endblock footer %}
+    </footer>
+    </div>
+
+    <script src="{{ get_url(path='scripts/jolt.js') }}"></script>
+</body>
+</html>

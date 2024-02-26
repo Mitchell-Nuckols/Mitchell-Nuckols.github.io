@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %} {{ page.title | safe }} | {{ super() }} {% endblock title %}
+
+{% block head %}
+{%- set section = get_section(path="blog/_index.md",metadata_only=true) -%}
+
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbsList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Blog",
+                "item": "{{ section.permalink | safe }}"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "{{ page.title }}"
+            }
+        ]
+    }
+</script>
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": [{
+            "@type": "Person",
+            "name": "{{ config.author }}",
+            "url": "{{ config.base_url | safe }}"
+        }],
+        "datePublished": "{{ page.date }}",
+        "headline": "{{ page.title }}"
+
+    }
+</script>
+{{ super() }}
+{% endblock head %}
+
+{% block header %}
+{%- set activePage = section.title -%}
+
+{{ super() }}
+{% endblock header %}
+
+{% block content %}
+    <a class="back-link" href="{{ section.permalink }}" aria-label="Return to the blog post list" j-link>Back</a>
+    {{ page.content | safe }}
+{% endblock content %}

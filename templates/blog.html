@@ -1,0 +1,13 @@
+{% extends "section.html" %}
+
+{% block content %}
+{{ super() }}
+
+<ul>
+    {% for post in section.pages %}
+        <li>
+            [{{ post.date }}] <a href="{{ post.permalink }}" j-link>{{ post.title }}</a>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock content %}
