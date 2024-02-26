@@ -10,8 +10,8 @@
     <title id="title" j-patch>{% block title %}{{ config.title }}{% endblock title %}</title>
 
     <link rel="preload" href="{{ get_url(path='fonts/Lora-VariableFont_wght.ttf') }}" as="font" type="font/ttf">
-    <link rel="preload" href="{{ get_url(path='fonts/Mulish-VariableFont_wght.ttf') }}" as="font" type="font/ttf">
-    <link rel="stylesheet" href="{{ get_url(path='style.css') }}">
+    <link rel="preload" href="{{ get_url(path='fonts/Mulish-VariableFont_wght.ttf') }}" as="font" type="font/ttf" crossorigin>
+    <link rel="stylesheet" href="{{ get_url(path='style.css') }}" crossorigin>
     {% endblock head %}
 </head>
 <body>

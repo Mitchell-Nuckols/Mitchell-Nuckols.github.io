@@ -1,5 +1,5 @@
 $desktop-font-size: 1rem;
-$mobile-font-size: 1rem/1.2;
+$mobile-font-size: 1rem;
 $font-weight-light: 400;
 $font-weight-dark: 300;
 
@@ -19,11 +19,11 @@ $font-weight-dark: 300;
 }
 */
 
-@font-face {
+/*@font-face {
     font-display: swap;
     font-family: "Quicksand";
     src: url("fonts/Quicksand-VariableFont_wght.ttf") format("opentype");
-}
+}*/
 
 @font-face {
     font-display: swap;
