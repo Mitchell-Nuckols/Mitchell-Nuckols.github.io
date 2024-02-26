@@ -45,7 +45,7 @@ nav.main-nav {
 }
 
 .header-container {
-    color: var(--primary);
+    color: var(--secondary);
 
     margin-top: 2vw;
     margin-bottom: 1vw;
@@ -55,7 +55,7 @@ nav.main-nav {
     justify-content: space-between;
     align-items: center;
 
-    border-bottom: 1px solid var(--primary);
+    border-bottom: 1px solid var(--secondary);
 
     @media only screen and (min-width: $mobile-breakpoint) {
         flex-direction: row;
